@@ -23,8 +23,8 @@ export default async function HomePage({
   return (
     <div>
       <Hero totalApps={apps.length} totalDownloads={formatCount(totalDownloads)} />
-
-      <section className="container -mt-4 pb-16">
+      
+      <section className="container pt-8 pb-16">
         <Suspense fallback={null}>
           <CategoryTabs categories={categories} />
         </Suspense>
