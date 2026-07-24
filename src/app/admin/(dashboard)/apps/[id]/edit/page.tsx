@@ -29,6 +29,7 @@ export default async function EditAppPage({ params }: { params: { id: string } }
     category_id: app.category_id ?? "",
     status: app.status,
     download_url: app.download_url ?? "",
+    download_count: app.download_count ?? 0,
     mod_info: app.mod_info ?? [],
     requirements: app.requirements ?? "",
     featured: app.featured,
