@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
       category_id: body.category_id || null,
       status: body.status || "draft",
       download_url: body.download_url || null,
+      download_count: body.download_count ?? 0,
       mod_info: body.mod_info || [],
       requirements: body.requirements || null,
       featured: !!body.featured,
