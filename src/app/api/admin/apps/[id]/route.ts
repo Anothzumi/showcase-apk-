@@ -49,6 +49,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
       category_id: body.category_id || null,
       status: body.status || "draft",
       download_url: body.download_url || null,
+      download_count: body.download_count ?? 0,
       mod_info: body.mod_info || [],
       requirements: body.requirements || null,
       featured: !!body.featured,
@@ -59,7 +60,6 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  // Replace semua FAQ app ini
   await db.from("app_faqs").delete().eq("app_id", params.id);
   if (Array.isArray(body.faqs) && body.faqs.length > 0) {
     const rows = body.faqs.map((f: { question: string; answer: string }, i: number) => ({
